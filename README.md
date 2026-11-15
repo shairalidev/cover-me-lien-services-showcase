@@ -74,26 +74,26 @@ A dedicated area for construction-law firms, with partnership packages and an in
 ## Architecture
 
 ```mermaid
-flowchart TB
+flowchart LR
   subgraph L0["Client"]
-    direction LR
+    direction TB
     L0_0["Browser"]
     L0_1["Cloudflare DNS, proxy & Turnstile"]
   end
   subgraph L1["Edge"]
-    direction LR
+    direction TB
     L1_0["Nginx reverse proxy"]
     L1_1["Let's Encrypt TLS"]
   end
   subgraph L2["Application"]
-    direction LR
+    direction TB
     L2_0["Next.js 15 (SSR)"]
     L2_1["Express API /api/v1"]
     L2_2["PDF document worker"]
     L2_3["PM2"]
   end
   subgraph L3["Data & services"]
-    direction LR
+    direction TB
     L3_0["MongoDB Atlas"]
     L3_1["Private S3-compatible storage"]
     L3_2["Stripe Checkout"]
